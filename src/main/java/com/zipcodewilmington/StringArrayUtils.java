@@ -1,5 +1,11 @@
 package com.zipcodewilmington;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * Created by leon on 1/29/18.
  */
@@ -25,7 +31,8 @@ public class StringArrayUtils {
      * @return last element in specified array
      */ // TODO
     public static String getLastElement(String[] array) {
-        return null;
+        int i = array.length-1;
+        return array[i];
     }
 
     /**
@@ -33,7 +40,8 @@ public class StringArrayUtils {
      * @return second to last element in specified array
      */ // TODO
     public static String getSecondToLastElement(String[] array) {
-        return null;
+        int i = array.length-2;
+        return array[i];
     }
 
     /**
@@ -42,15 +50,22 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
+        for (String e : array) {
+            if(e.equals(value)){
+                return true;
+            }
+        }
         return false;
     }
-
     /**
      * @param array of String objects
      * @return an array with identical contents in reverse order
      */ // TODO
     public static String[] reverse(String[] array) {
-        return null;
+         String [] reversed = new String [array.length];
+        for(int i = array.length-1; i <= 0; i--){
+                reversed[] +=
+        }
     }
 
     /**
