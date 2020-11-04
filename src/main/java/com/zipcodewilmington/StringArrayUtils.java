@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -167,14 +168,22 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        ArrayList<String> arrayL = new ArrayList<String>();
-        String temporary = "";
-        for (int i = 0; i < array.length; i++) {
-            String current = array[i];
+        ArrayList<String> result = new ArrayList<String>();
+        StringBuilder placeHolder = new StringBuilder();
 
-            return arrayL.toArray(new String[arrayL.size()]);
+        placeHolder.append(array[0]);
+        for(int i = 1; i < array.length; i++){
+            if (array[i].equals(array[i-1])){
+                placeHolder.append(array[i]);
+            } else {
+                result.add(placeHolder.toString());
+                placeHolder.setLength(0);
+                placeHolder.append(array[i]);
+            }
         }
-
-
+        result.add(placeHolder.toString());
+        String[] finalArray = result.toArray(new String[0]);
+        return finalArray;
+    }
 
 }
